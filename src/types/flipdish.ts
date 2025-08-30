@@ -18,15 +18,6 @@ export type MenuItemOptionSetItem = {
   OptionSetItemMetadata?: unknown[];
 };
 
-export type AvailableTime = Partial<{
-  BusinessHoursPeriodId: number;
-  DayOfWeek: number;
-  StartTime: string;
-  Period: string;
-  StartTimeEarly: string;
-  PeriodEarly: string;
-}>;
-
 export type MenuItemOptionSet = {
   Name?: string | null;
   MenuItemOptionSetId?: number;
@@ -74,6 +65,15 @@ export type MenuItem = {
   PriceCanIncrease?: boolean;
   MenuItemMetadata?: unknown[];
 };
+
+export type AvailableTime = Partial<{
+  BusinessHoursPeriodId: number;
+  DayOfWeek: number;
+  StartTime: string;
+  Period: string;
+  StartTimeEarly: string;
+  PeriodEarly: string;
+}>;
 
 export type MenuSectionAvailability = {
   MenuSectionId?: number;
