@@ -1,18 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test('Menu page renders with menu sections and items', async ({ page }) => {
+  await page.goto('http://localhost:3000');
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+  await expect(page.getByRole('heading', { name: 'Menu' })).toBeVisible();
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+  const sections = page.locator('section');
+  await expect(sections.first()).toBeVisible();
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+  const menuItem = page.locator('article');
+  await expect(menuItem.first()).toBeVisible();
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  await expect(menuItem.first().locator('h1')).toBeVisible();
+  
+  await expect(menuItem.first().locator('h2')).toBeVisible();
+
+  await expect(menuItem.first().locator('p')).toContainText('£');
+
+  const img = menuItem.first().locator('img');
+  await expect(img).toBeVisible();
 });

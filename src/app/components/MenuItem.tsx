@@ -10,7 +10,7 @@ export function MenuItem({ item }: Props) {
       <div>
         {item.Name && <h1>{item.Name}</h1>}
         {item.Description && (
-          <p className='text-sm text-gray-500 py-2'>{item.Description}</p>
+          <h2 className='text-sm text-gray-500 py-2'>{item.Description}</h2>
         )}
         <p className='mt-1 font-medium'>{displayPrice(item)}</p>
       </div>
