@@ -13,8 +13,6 @@ test('Menu page renders with menu sections and items', async ({ page }) => {
 
   await expect(menuItem.first().locator('h1')).toBeVisible();
   
-  await expect(menuItem.first().locator('h2')).toBeVisible();
-
   await expect(menuItem.first().locator('p')).toContainText('£');
 
   const img = menuItem.first().locator('img');

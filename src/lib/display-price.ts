@@ -1,15 +1,10 @@
-import type { MenuItem } from '@/types/flipdish';
-
-export function displayPrice(item: MenuItem): string {
-  const master = item.MenuItemOptionSets?.find(set => set?.IsMasterOptionSet);
-  const value = master?.MinPrice ?? item.Price;
-
-  if (typeof value !== 'number') return '-';
+export function displayPrice(price?: number | null): string {
+  if (typeof price !== 'number') return '-';
 
   const formatted = new Intl.NumberFormat('en-GB', {
     style: 'currency',
     currency: 'GBP',
-  }).format(value);
+  }).format(price);
 
-  return master ? `from ${formatted}` : formatted;
+  return formatted;
 }

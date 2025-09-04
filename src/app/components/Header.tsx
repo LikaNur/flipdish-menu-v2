@@ -12,7 +12,8 @@ export default function Header() {
         <Image
           src='/flipdish-logo.svg'
           alt='Flipdish Logo'
-          draggable='false'
+          draggable={false}
+          loading='lazy'
           width={135}
           height={40}
           style={{ objectFit: 'cover' }}
